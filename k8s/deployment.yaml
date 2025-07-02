@@ -5,6 +5,6 @@ metadata:
 spec:
   containers:
     - name: flask-container
-      image: my-api:latest
+      image: meinheld-gunicorn-flask:latest
       securityContext:
         runAsNonRoot: false
