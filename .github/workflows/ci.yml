@@ -43,3 +43,5 @@ jobs:
       with:
         files: deployment.yaml
         policy-path: ./policy
+        combine: false
+        output: stdout
