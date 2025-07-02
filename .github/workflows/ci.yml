@@ -1,0 +1,87 @@
+name: DevSecOps CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build Docker Image
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build Docker image
+        run: docker build -t my-api:latest .
+
+  lint:
+    runs-on: ubuntu-latest
+    name: Lint YAML and Dockerfile
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install yamllint and hadolint
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y yamllint
+          curl -O -L https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64
+          chmod +x hadolint-Linux-x86_64 && sudo mv hadolint-Linux-x86_64 /usr/local/bin/hadolint
+
+      - name: Lint YAML files
+        run: yamllint .
+
+      - name: Lint Dockerfile
+        run: hadolint Dockerfile
+
+  scan-dependencies:
+    runs-on: ubuntu-latest
+    name: Trivy Scan - Dependencies
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Trivy
+        run: |
+          sudo apt-get install wget -y
+          wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.51.1_Linux-64bit.deb
+          sudo dpkg -i trivy_0.51.1_Linux-64bit.deb
+
+      - name: Run Trivy on dependencies
+        run: trivy fs --scanners vuln --exit-code 0 .
+
+  scan-image:
+    runs-on: ubuntu-latest
+    name: Trivy Scan - Docker Image
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build Docker image
+        run: docker build -t my-api:latest .
+
+      - name: Install Trivy
+        run: |
+          sudo apt-get install wget -y
+          wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.51.1_Linux-64bit.deb
+          sudo dpkg -i trivy_0.51.1_Linux-64bit.deb
+
+      - name: Scan Docker image
+        run: trivy image --exit-code 0 my-api:latest
+
+  conftest:
+    runs-on: ubuntu-latest
+    name: Conftest Policy Check
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Conftest
+        run: |
+          wget https://github.com/open-policy-agent/conftest/releases/download/v0.45.0/conftest_0.45.0_Linux_x86_64.tar.gz
+          tar -xzf conftest_0.45.0_Linux_x86_64.tar.gz
+          sudo mv conftest /usr/local/bin/
+
+      - name: Run Conftest on Kubernetes manifest
+        run: conftest test k8s/deployment.yaml
