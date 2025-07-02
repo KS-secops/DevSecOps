@@ -4,13 +4,13 @@ FROM node:16-alpine
 WORKDIR /usr/src/app
 
 # Copier package.json et package-lock.json pour installer les dépendances
-COPY package*.json ./
+COPY node-api/package*.json ./
 
 # Installer les dépendances npm
 RUN npm install
 
 # Copier le reste des fichiers de l’application
-COPY . .
+COPY node-api/ .
 
 # Exposer le port sur lequel l’application écoute
 EXPOSE 3000
