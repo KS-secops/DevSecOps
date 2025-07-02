@@ -1,0 +1,97 @@
+﻿2025-07-02T21:02:44.0837871Z ##[group]Run actions/checkout@v3
+2025-07-02T21:02:44.0838419Z with:
+2025-07-02T21:02:44.0838626Z   repository: KS-secops/DevSecOps
+2025-07-02T21:02:44.0839007Z   token: ***
+2025-07-02T21:02:44.0839185Z   ssh-strict: true
+2025-07-02T21:02:44.0839392Z   persist-credentials: true
+2025-07-02T21:02:44.0839604Z   clean: true
+2025-07-02T21:02:44.0839802Z   sparse-checkout-cone-mode: true
+2025-07-02T21:02:44.0840032Z   fetch-depth: 1
+2025-07-02T21:02:44.0840202Z   fetch-tags: false
+2025-07-02T21:02:44.0840380Z   lfs: false
+2025-07-02T21:02:44.0840539Z   submodules: false
+2025-07-02T21:02:44.0840732Z   set-safe-directory: true
+2025-07-02T21:02:44.0841103Z ##[endgroup]
+2025-07-02T21:02:44.2448167Z Syncing repository: KS-secops/DevSecOps
+2025-07-02T21:02:44.2449493Z ##[group]Getting Git version info
+2025-07-02T21:02:44.2449883Z Working directory is '/home/runner/work/DevSecOps/DevSecOps'
+2025-07-02T21:02:44.2450466Z [command]/usr/bin/git version
+2025-07-02T21:02:44.2493231Z git version 2.49.0
+2025-07-02T21:02:44.2521891Z ##[endgroup]
+2025-07-02T21:02:44.2536341Z Temporarily overriding HOME='/home/runner/work/_temp/3aa54dfe-3452-4945-80c6-9439e47decfc' before making global git config changes
+2025-07-02T21:02:44.2539982Z Adding repository directory to the temporary git global config as a safe directory
+2025-07-02T21:02:44.2540593Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/DevSecOps/DevSecOps
+2025-07-02T21:02:44.2572440Z Deleting the contents of '/home/runner/work/DevSecOps/DevSecOps'
+2025-07-02T21:02:44.2575931Z ##[group]Initializing the repository
+2025-07-02T21:02:44.2579728Z [command]/usr/bin/git init /home/runner/work/DevSecOps/DevSecOps
+2025-07-02T21:02:44.2642283Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-07-02T21:02:44.2643246Z hint: is subject to change. To configure the initial branch name to use in all
+2025-07-02T21:02:44.2643806Z hint: of your new repositories, which will suppress this warning, call:
+2025-07-02T21:02:44.2644141Z hint:
+2025-07-02T21:02:44.2644402Z hint: 	git config --global init.defaultBranch <name>
+2025-07-02T21:02:44.2644686Z hint:
+2025-07-02T21:02:44.2644953Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-07-02T21:02:44.2645420Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-07-02T21:02:44.2645777Z hint:
+2025-07-02T21:02:44.2645957Z hint: 	git branch -m <name>
+2025-07-02T21:02:44.2648788Z Initialized empty Git repository in /home/runner/work/DevSecOps/DevSecOps/.git/
+2025-07-02T21:02:44.2658193Z [command]/usr/bin/git remote add origin https://github.com/KS-secops/DevSecOps
+2025-07-02T21:02:44.2689016Z ##[endgroup]
+2025-07-02T21:02:44.2689673Z ##[group]Disabling automatic garbage collection
+2025-07-02T21:02:44.2692627Z [command]/usr/bin/git config --local gc.auto 0
+2025-07-02T21:02:44.2720762Z ##[endgroup]
+2025-07-02T21:02:44.2721387Z ##[group]Setting up auth
+2025-07-02T21:02:44.2726987Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-07-02T21:02:44.2753998Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-07-02T21:02:44.3033819Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-07-02T21:02:44.3060503Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-07-02T21:02:44.3275960Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-07-02T21:02:44.3306198Z ##[endgroup]
+2025-07-02T21:02:44.3306920Z ##[group]Fetching the repository
+2025-07-02T21:02:44.3314182Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin +13807af2ade00165569a9d4171d2ee4004caf140:refs/remotes/origin/main
+2025-07-02T21:02:44.7098598Z remote: Enumerating objects: 18, done.        
+2025-07-02T21:02:44.7099385Z remote: Counting objects:   5% (1/18)        
+2025-07-02T21:02:44.7099957Z remote: Counting objects:  11% (2/18)        
+2025-07-02T21:02:44.7100504Z remote: Counting objects:  16% (3/18)        
+2025-07-02T21:02:44.7101024Z remote: Counting objects:  22% (4/18)        
+2025-07-02T21:02:44.7101562Z remote: Counting objects:  27% (5/18)        
+2025-07-02T21:02:44.7102080Z remote: Counting objects:  33% (6/18)        
+2025-07-02T21:02:44.7102594Z remote: Counting objects:  38% (7/18)        
+2025-07-02T21:02:44.7103126Z remote: Counting objects:  44% (8/18)        
+2025-07-02T21:02:44.7103651Z remote: Counting objects:  50% (9/18)        
+2025-07-02T21:02:44.7104183Z remote: Counting objects:  55% (10/18)        
+2025-07-02T21:02:44.7104720Z remote: Counting objects:  61% (11/18)        
+2025-07-02T21:02:44.7105340Z remote: Counting objects:  66% (12/18)        
+2025-07-02T21:02:44.7106792Z remote: Counting objects:  72% (13/18)        
+2025-07-02T21:02:44.7107347Z remote: Counting objects:  77% (14/18)        
+2025-07-02T21:02:44.7107865Z remote: Counting objects:  83% (15/18)        
+2025-07-02T21:02:44.7108389Z remote: Counting objects:  88% (16/18)        
+2025-07-02T21:02:44.7108916Z remote: Counting objects:  94% (17/18)        
+2025-07-02T21:02:44.7109469Z remote: Counting objects: 100% (18/18)        
+2025-07-02T21:02:44.7110063Z remote: Counting objects: 100% (18/18), done.        
+2025-07-02T21:02:44.7110662Z remote: Compressing objects:   8% (1/12)        
+2025-07-02T21:02:44.7111242Z remote: Compressing objects:  16% (2/12)        
+2025-07-02T21:02:44.7111813Z remote: Compressing objects:  25% (3/12)        
+2025-07-02T21:02:44.7112385Z remote: Compressing objects:  33% (4/12)        
+2025-07-02T21:02:44.7112995Z remote: Compressing objects:  41% (5/12)        
+2025-07-02T21:02:44.7113566Z remote: Compressing objects:  50% (6/12)        
+2025-07-02T21:02:44.7114105Z remote: Compressing objects:  58% (7/12)        
+2025-07-02T21:02:44.7114660Z remote: Compressing objects:  66% (8/12)        
+2025-07-02T21:02:44.7115196Z remote: Compressing objects:  75% (9/12)        
+2025-07-02T21:02:44.7115813Z remote: Compressing objects:  83% (10/12)        
+2025-07-02T21:02:44.7116378Z remote: Compressing objects:  91% (11/12)        
+2025-07-02T21:02:44.7117168Z remote: Compressing objects: 100% (12/12)        
+2025-07-02T21:02:44.7117800Z remote: Compressing objects: 100% (12/12), done.        
+2025-07-02T21:02:44.7227493Z remote: Total 18 (delta 0), reused 13 (delta 0), pack-reused 0 (from 0)        
+2025-07-02T21:02:44.7273070Z From https://github.com/KS-secops/DevSecOps
+2025-07-02T21:02:44.7273928Z  * [new ref]         13807af2ade00165569a9d4171d2ee4004caf140 -> origin/main
+2025-07-02T21:02:44.7305704Z ##[endgroup]
+2025-07-02T21:02:44.7306295Z ##[group]Determining the checkout info
+2025-07-02T21:02:44.7308067Z ##[endgroup]
+2025-07-02T21:02:44.7308674Z ##[group]Checking out the ref
+2025-07-02T21:02:44.7312858Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-07-02T21:02:44.7362215Z Switched to a new branch 'main'
+2025-07-02T21:02:44.7364998Z branch 'main' set up to track 'origin/main'.
+2025-07-02T21:02:44.7371544Z ##[endgroup]
+2025-07-02T21:02:44.7406250Z [command]/usr/bin/git log -1 --format='%H'
+2025-07-02T21:02:44.7428807Z '13807af2ade00165569a9d4171d2ee4004caf140'

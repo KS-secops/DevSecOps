@@ -1,0 +1,22 @@
+﻿2025-07-02T21:02:44.7607416Z ##[group]Run ibiqlik/action-yamllint@v3
+2025-07-02T21:02:44.7607726Z with:
+2025-07-02T21:02:44.7607912Z   file_or_dir: ./deployment.yaml
+2025-07-02T21:02:44.7608151Z   format: parsable
+2025-07-02T21:02:44.7608338Z   strict: false
+2025-07-02T21:02:44.7608520Z   no_warnings: false
+2025-07-02T21:02:44.7608707Z ##[endgroup]
+2025-07-02T21:02:44.7711433Z ##[group]Run # export LOGFILE=$(mktemp yamllint-XXXXXX)
+2025-07-02T21:02:44.7711871Z [36;1m# export LOGFILE=$(mktemp yamllint-XXXXXX)[0m
+2025-07-02T21:02:44.7712349Z [36;1m/home/runner/work/_actions/ibiqlik/action-yamllint/v3/entrypoint.sh[0m
+2025-07-02T21:02:44.7815738Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-07-02T21:02:44.7816089Z env:
+2025-07-02T21:02:44.7816290Z   INPUT_FILE_OR_DIR: ./deployment.yaml
+2025-07-02T21:02:44.7816809Z   INPUT_CONFIG_FILE: 
+2025-07-02T21:02:44.7817021Z   INPUT_CONFIG_DATA: 
+2025-07-02T21:02:44.7817206Z   INPUT_FORMAT: parsable
+2025-07-02T21:02:44.7817406Z   INPUT_STRICT: false
+2025-07-02T21:02:44.7817593Z   INPUT_NO_WARNINGS: false
+2025-07-02T21:02:44.7817833Z ##[endgroup]
+2025-07-02T21:02:44.9624680Z ======================
+2025-07-02T21:02:44.9625167Z = Linting YAML files =
+2025-07-02T21:02:44.9625484Z ======================

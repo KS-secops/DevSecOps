@@ -1,0 +1,23 @@
+﻿2025-07-02T21:02:42.5934295Z ##[group]Pull down action image 'instrumenta/conftest:latest'
+2025-07-02T21:02:42.5978984Z ##[command]/usr/bin/docker pull instrumenta/conftest:latest
+2025-07-02T21:02:43.3493220Z latest: Pulling from instrumenta/conftest
+2025-07-02T21:02:43.3493727Z df20fa9351a1: Pulling fs layer
+2025-07-02T21:02:43.3494028Z bc9daf005a99: Pulling fs layer
+2025-07-02T21:02:43.3494317Z e1e7755abe89: Pulling fs layer
+2025-07-02T21:02:43.3494867Z 09afddcf2064: Pulling fs layer
+2025-07-02T21:02:43.3495148Z 09afddcf2064: Waiting
+2025-07-02T21:02:43.5896062Z e1e7755abe89: Download complete
+2025-07-02T21:02:43.6621377Z df20fa9351a1: Verifying Checksum
+2025-07-02T21:02:43.6622794Z df20fa9351a1: Download complete
+2025-07-02T21:02:43.7707371Z df20fa9351a1: Pull complete
+2025-07-02T21:02:43.7954139Z bc9daf005a99: Verifying Checksum
+2025-07-02T21:02:43.7954738Z bc9daf005a99: Download complete
+2025-07-02T21:02:43.8349209Z 09afddcf2064: Verifying Checksum
+2025-07-02T21:02:43.8349711Z 09afddcf2064: Download complete
+2025-07-02T21:02:44.0202784Z bc9daf005a99: Pull complete
+2025-07-02T21:02:44.0380620Z e1e7755abe89: Pull complete
+2025-07-02T21:02:44.0510041Z 09afddcf2064: Pull complete
+2025-07-02T21:02:44.0545661Z Digest: sha256:7da62b227612d5cf50d6de80db740b77bcfb7fd52b2e1aa679dd9edd692fec21
+2025-07-02T21:02:44.0560999Z Status: Downloaded newer image for instrumenta/conftest:latest
+2025-07-02T21:02:44.0570171Z docker.io/instrumenta/conftest:latest
+2025-07-02T21:02:44.0591464Z ##[endgroup]

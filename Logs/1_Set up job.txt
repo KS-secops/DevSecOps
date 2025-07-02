@@ -1,0 +1,53 @@
+﻿2025-07-02T21:02:38.9956599Z Current runner version: '2.325.0'
+2025-07-02T21:02:38.9981875Z ##[group]Operating System
+2025-07-02T21:02:38.9982688Z Ubuntu
+2025-07-02T21:02:38.9983193Z 24.04.2
+2025-07-02T21:02:38.9983629Z LTS
+2025-07-02T21:02:38.9984195Z ##[endgroup]
+2025-07-02T21:02:38.9984718Z ##[group]Runner Image
+2025-07-02T21:02:38.9985280Z Image: ubuntu-24.04
+2025-07-02T21:02:38.9985889Z Version: 20250629.1.0
+2025-07-02T21:02:38.9987142Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250629.1/images/ubuntu/Ubuntu2404-Readme.md
+2025-07-02T21:02:38.9988596Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250629.1
+2025-07-02T21:02:38.9989578Z ##[endgroup]
+2025-07-02T21:02:38.9990094Z ##[group]Runner Image Provisioner
+2025-07-02T21:02:38.9990703Z 2.0.449.1
+2025-07-02T21:02:38.9991202Z ##[endgroup]
+2025-07-02T21:02:38.9992249Z ##[group]GITHUB_TOKEN Permissions
+2025-07-02T21:02:38.9994513Z Contents: read
+2025-07-02T21:02:38.9995081Z Metadata: read
+2025-07-02T21:02:38.9995593Z Packages: read
+2025-07-02T21:02:38.9996395Z ##[endgroup]
+2025-07-02T21:02:38.9998888Z Secret source: Actions
+2025-07-02T21:02:39.0000483Z Prepare workflow directory
+2025-07-02T21:02:39.0333829Z Prepare all required actions
+2025-07-02T21:02:39.0371172Z Getting action download info
+2025-07-02T21:02:39.4522649Z ##[group]Download immutable action package 'actions/checkout@v3'
+2025-07-02T21:02:39.4523746Z Version: 3.6.0
+2025-07-02T21:02:39.4524738Z Digest: sha256:942562b9c7d4b1f2557f1da21f4d3eb4eb4fd01f2ad78b2a6e187d1b193e0a0f
+2025-07-02T21:02:39.4526125Z Source commit SHA: f43a0e5ff2bd294095638e18286ca9a3d1956744
+2025-07-02T21:02:39.4527076Z ##[endgroup]
+2025-07-02T21:02:39.5441515Z Download action repository 'ibiqlik/action-yamllint@v3' (SHA:2576378a8e339169678f9939646ee3ee325e845c)
+2025-07-02T21:02:39.8590066Z ##[group]Download immutable action package 'docker/setup-buildx-action@v3'
+2025-07-02T21:02:39.8590929Z Version: 3.11.1
+2025-07-02T21:02:39.8591620Z Digest: sha256:b58e632d2d812e161c8abeba6def9f56b420aa9ae41d825a8408241bcad0f303
+2025-07-02T21:02:39.8592740Z Source commit SHA: e468171a9de216ec08956ac3ada2f0791b6bd435
+2025-07-02T21:02:39.8593441Z ##[endgroup]
+2025-07-02T21:02:40.2914280Z Download action repository 'aquasecurity/trivy-action@master' (SHA:76071ef0d7ec797419534a183b498b4d6366cf37)
+2025-07-02T21:02:40.7854354Z Download action repository 'instrumenta/conftest-action@master' (SHA:ae9212d5c0c26e21eedf359e2889d0d5d39dabd4)
+2025-07-02T21:02:41.3037866Z Getting action download info
+2025-07-02T21:02:41.4636750Z Download action repository 'aquasecurity/setup-trivy@ff1b8b060f23b650436d419b5e13f67f5d4c3087' (SHA:ff1b8b060f23b650436d419b5e13f67f5d4c3087)
+2025-07-02T21:02:41.7875100Z ##[group]Download immutable action package 'actions/cache@v4'
+2025-07-02T21:02:41.7876396Z Version: 4.2.3
+2025-07-02T21:02:41.7878055Z Digest: sha256:c8a3bb963e1f1826d8fcc8d1354f0dd29d8ac1db1d4f6f20247055ae11b81ed9
+2025-07-02T21:02:41.7879827Z Source commit SHA: 5a3ec84eff668545956fd18022155c47e93e2684
+2025-07-02T21:02:41.7881032Z ##[endgroup]
+2025-07-02T21:02:41.8976302Z Getting action download info
+2025-07-02T21:02:42.0494235Z ##[group]Download immutable action package 'actions/checkout@v4'
+2025-07-02T21:02:42.0495528Z Version: 4.2.2
+2025-07-02T21:02:42.0496921Z Digest: sha256:ccb2698953eaebd21c7bf6268a94f9c26518a7e38e27e0b83c1fe1ad049819b1
+2025-07-02T21:02:42.0498619Z Source commit SHA: 11bd71901bbe5b1630ceea73d27597364c9af683
+2025-07-02T21:02:42.0499786Z ##[endgroup]
+2025-07-02T21:02:42.1671603Z Getting action download info
+2025-07-02T21:02:42.3248909Z Getting action download info
+2025-07-02T21:02:42.5462428Z Complete job name: devsecops

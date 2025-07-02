@@ -1,0 +1,12 @@
+﻿2025-07-02T21:03:15.2695839Z Post job cleanup.
+2025-07-02T21:03:15.2721440Z Post job cleanup.
+2025-07-02T21:03:15.4083266Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/DevSecOps/DevSecOps --files-from manifest.txt --use-compress-program zstdmt
+2025-07-02T21:03:17.4354267Z Sent 42008576 of 48057989 (87.4%), 40.0 MBs/sec
+2025-07-02T21:03:17.8849779Z Sent 48057989 of 48057989 (100.0%), 31.6 MBs/sec
+2025-07-02T21:03:17.9508774Z Cache saved with key: cache-trivy-2025-07-02
+2025-07-02T21:03:17.9652972Z Post job cleanup.
+2025-07-02T21:03:17.9690534Z Post job cleanup.
+2025-07-02T21:03:18.0644949Z Post job cleanup.
+2025-07-02T21:03:18.1996796Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/DevSecOps/DevSecOps --files-from manifest.txt --use-compress-program zstdmt
+2025-07-02T21:03:19.7347297Z Sent 41610927 of 41610927 (100.0%), 39.7 MBs/sec
+2025-07-02T21:03:20.1219098Z Cache saved with key: trivy-binary-v0.63.0-Linux-X64
