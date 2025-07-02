@@ -1,91 +1,45 @@
-name: DevSecOps CI Pipeline
+name: CI DevSecOps
 
 on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ main ]
 
 jobs:
-
-  build:
+  devsecops:
     runs-on: ubuntu-latest
-    name: Build Docker Image
+
     steps:
-      - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+    - name: Lint YAML files
+      uses: ibiqlik/action-yamllint@v3
+      with:
+        file_or_dir: './deployment.yaml'
 
-      - name: Build Docker image
-        run: docker build -t my-api:latest -f ./app/meinheld-gunicorn-flask-docker/docker-images/python3.9.dockerfile ./app/meinheld-gunicorn-flask-docker
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
 
-  lint:
-    runs-on: ubuntu-latest
-    name: Lint Dockerfile and YAML
-    steps:
-      - uses: actions/checkout@v3
+    - name: Build Docker image
+      run: docker build -t node-api .
 
-      - name: Install yamllint and hadolint
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y yamllint wget
-          curl -LO https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64
-          chmod +x hadolint-Linux-x86_64
-          sudo mv hadolint-Linux-x86_64 /usr/local/bin/hadolint
+    - name: Trivy FS (scan dépendances)
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: fs
+        scan-ref: .
 
-      - name: Lint YAML files
-        run: yamllint .
+    - name: Trivy Image scan
+      uses: aquasecurity/trivy-action@master
+      with:
+        image-ref: 'node-api:latest'
+        format: table
+        ignore-unfixed: true
+        vuln-type: os,library
 
-      - name: Lint Dockerfile
-        run: hadolint ./app/meinheld-gunicorn-flask-docker/docker-images/python3.9.dockerfile
-
-  scan-dependencies:
-    runs-on: ubuntu-latest
-    name: Scan Dependencies with Trivy
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Install Trivy
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y wget
-          wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.51.1_Linux-64bit.deb
-          sudo dpkg -i trivy_0.51.1_Linux-64bit.deb
-
-      - name: Run Trivy FS Scan on app dependencies
-        run: trivy fs --scanners vuln --exit-code 0 ./app/meinheld-gunicorn-flask-docker/docker-images
-
-  scan-image:
-    runs-on: ubuntu-latest
-    name: Scan Docker Image with Trivy
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Build Docker image
-        run: docker build -t my-api:latest -f ./app/meinheld-gunicorn-flask-docker/docker-images/python3.9.dockerfile ./app/meinheld-gunicorn-flask-docker
-
-      - name: Install Trivy
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y wget
-          wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.51.1_Linux-64bit.deb
-          sudo dpkg -i trivy_0.51.1_Linux-64bit.deb
-
-      - name: Run Trivy Image Scan
-        run: trivy image --exit-code 0 my-api:latest
-
-  conftest:
-    runs-on: ubuntu-latest
-    name: Run Conftest Policy Checks
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Install Conftest
-        run: |
-          wget https://github.com/open-policy-agent/conftest/releases/download/v0.45.0/conftest_0.45.0_Linux_x86_64.tar.gz
-          tar -xzf conftest_0.45.0_Linux_x86_64.tar.gz
-          sudo mv conftest /usr/local/bin/
-
-      - name: Run Conftest test on Kubernetes manifest
-        run: conftest test k8s/deployment.yaml
+    - name: Conftest (policy check)
+      uses: instrumenta/conftest-action@master
+      with:
+        files: deployment.yaml
+        policy-path: ./policy
